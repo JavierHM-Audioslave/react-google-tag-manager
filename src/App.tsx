@@ -1,6 +1,18 @@
 import { BrowserRouter } from "react-router-dom";
-import { Col, Row, Tab } from "react-bootstrap";
 import Routes from "./components/Routes";
+import TagManager from "react-gtm-module";
+
+const TagManagerArgs = {
+  gtmId: "GTM-KDK7RV2S",
+};
+
+TagManager.initialize(TagManagerArgs);
+TagManager.dataLayer({
+  dataLayer: {
+    event: "pageview",
+    path: "/home/",
+  },
+});
 
 function App() {
   return (
