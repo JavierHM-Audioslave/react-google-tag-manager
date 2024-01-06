@@ -17,6 +17,7 @@ import {
   InitiateAuthCommand,
 } from "@aws-sdk/client-cognito-identity-provider";
 import Cookies from "js-cookie";
+import TagManager from "react-gtm-module";
 
 const Home = () => {
   const [validate, setValidate] = useState<boolean>(false);
@@ -417,6 +418,13 @@ const Home = () => {
             <Nav.Item>
               <Nav.Link
                 eventKey="sign-in"
+                onClick={() =>
+                  TagManager.dataLayer({
+                    dataLayer: {
+                      event: "sign-in",
+                    },
+                  })
+                }
                 className="text-secondary text-center fs-5"
               >
                 Sign In
